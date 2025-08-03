@@ -1,11 +1,8 @@
 name: GitHub Metrics
 
 on:
-  schedule: [{ cron: "0 * * * *" }]
-  workflow_dispatch:
-
-permissions:
-  contents: write
+  schedule: [{ cron: "0 * * * *" }] # обновление каждый час
+  workflow_dispatch:               # ручной запуск
 
 jobs:
   github-metrics:
@@ -13,7 +10,12 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          user: icamysss
+          filename: metrics.plugin.isocalendar.fullyear.svg
           token: ${{ secrets.METRICS_TOKEN }}
-          filename: metrics.svg
-          base: header, activity, community, repositories, metadata
+
+          # ↓ базовые секции (можно оставить пустым)
+          base: ""
+
+          # ↓ включение календаря коммитов
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
