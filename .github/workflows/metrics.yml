@@ -1,13 +1,15 @@
 name: GitHub Metrics
 on:
-  schedule: [{ cron: "0 * * * *" }]
+  schedule: [{ cron: "0 * * * *" }] # каждый час
   workflow_dispatch:
+
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          filename: metrics.svg
+          user: icamysss
           token: ${{ secrets.METRICS_TOKEN }}
+          filename: metrics.svg
           base: header, activity, community, repositories, metadata
