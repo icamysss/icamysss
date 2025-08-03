@@ -46,7 +46,7 @@ UI с валидацией, 3D-визуализация (ProBuilder API), экс
 ## 📬 Контакты
 
 - Telegram: [@icamyss](https://t.me/@icamysss)
-- Email: [icamys.ne@gamil.com](mailto:icamys.ne@gmail.com)
+- Email: [icamys.ne@gmail.com](mailto:icamys.ne@gmail.com)
 - Kwork: [Профиль](https://kwork.ru/user/icamys)
 
 ---
