@@ -17,4 +17,4 @@ jobs:
       - name: Run GitHub Metrics
         uses: lowlighter/metrics@latest
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.METRICS_TOKEN }}
