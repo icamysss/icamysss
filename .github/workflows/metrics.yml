@@ -1,21 +1,66 @@
-name: GitHub Metrics
+name: Metrics
 
 on:
-  schedule: [{ cron: "0 * * * *" }] # обновление каждый час
+  schedule: [{cron: "0 0 * * 1"}]   # обновление каждую неделю
   workflow_dispatch:               # ручной запуск
+  push: {branches: ["main"]}       # или по пушу (опционально)
 
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
+
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          filename: metrics.plugin.isocalendar.fullyear.svg
           token: ${{ secrets.METRICS_TOKEN }}
+          user: evalldev                        # замени на свой ник
+          template: classic
+          base: header, activity, community, repositories
+          config_timezone: Europe/Moscow
+          config_output: svg
+          config_display: large
+          config_order: base.header, base.repositories, languages, activity, achievements
 
-          # ↓ базовые секции (можно оставить пустым)
-          base: ""
+          # 🎯 Автоматически показать активные репы
+          plugin_repositories: yes
+          plugin_repositories_pinned: yes
+          plugin_repositories_starred: no
+          plugin_repositories_order: featured, pinned, stars
+          plugin_repositories_limit: 4
 
-          # ↓ включение календаря коммитов
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
+          # 📊 Статистика по языкам
+          plugin_languages: yes
+          plugin_languages_ignored: html, css
+          plugin_languages_details: percentage
+          plugin_languages_threshold: 1%
+          plugin_languages_limit: 6
+
+          # 🔥 Активность по коммитам / PR / issues
+          plugin_activity: yes
+          plugin_activity_limit: 5
+          plugin_activity_days: 14
+          plugin_activity_filter: all
+
+          # 🏆 Достижения
+          plugin_achievements: yes
+          plugin_achievements_display: compact
+          plugin_achievements_threshold: C
+          plugin_achievements_secrets: yes
+          plugin_achievements_ignored: octonaut, stargazer-in-the-dark
+
+          # 🔧 Используемые технологии через topics
+          plugin_topics: yes
+          plugin_topics_mode: icons
+          plugin_topics_limit: 15
+
+          # 👥 Взаимодействие: pull requests, issues
+          plugin_followup: yes
+          plugin_contributors: yes
+
+          # 📦 Проекты (если хочешь в будущем вручную)
+          plugin_projects: no
+
+          # 🕒 Wakatime (если используешь)
+          # plugin_wakatime: yes
+          # plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
+          # plugin_wakatime_sections: time, languages, projects
