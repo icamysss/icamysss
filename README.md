@@ -11,14 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/icamysss/icamysss/blob/main/metrics.svg" />
-</p>
-
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=icamysss&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" />
-  <br/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=icamysss&layout=compact&theme=tokyonight&hide_border=true" alt="Top Langs" />
+  <img src="https://github.com/icamysss/icamysss/blob/main/metrics.svg" width="100%" />
 </p>
 
 ---
