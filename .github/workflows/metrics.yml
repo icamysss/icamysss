@@ -1,7 +1,11 @@
 name: GitHub Metrics
+
 on:
-  schedule: [{ cron: "0 * * * *" }] # каждый час
+  schedule: [{ cron: "0 * * * *" }]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   github-metrics:
